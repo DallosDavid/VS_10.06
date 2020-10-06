@@ -52,20 +52,20 @@ namespace VS_10._06
             this.Klassz = klassz;
             if (klassz == 1)
             {
-                this.AlapHp = 120;
-                this.AlapEro = 25;
+                this.AlapHp = 30;
+                this.AlapEro = 5;
                 this.AlapDef = 10;
             }
             else if (klassz == 2)
             {
-                this.AlapHp = 60;
-                this.AlapEro = 45;
+                this.AlapHp = 15;
+                this.AlapEro = 8;
                 this.AlapDef = 2;
             }
             else if (klassz == 3)
             {
-                this.AlapHp = 55;
-                this.AlapEro = 60;
+                this.AlapHp = 10;
+                this.AlapEro = 12;
                 this.AlapDef = 5;
                 //az ijász 2 körig nem sebződik -> tavolrol lő
             }
@@ -78,7 +78,26 @@ namespace VS_10._06
             {
                 string [] sor = k.ReadLine().Split(';');
                 ellenseg.Add(new harcos(sor[0],Convert.ToInt32(sor[1])));
-
+                int elStat = Convert.ToInt32(sor[1]);
+                if (elStat == 1)
+                {
+                    this.AlapHp = 30;
+                    this.AlapEro = 5;
+                    this.AlapDef = 10;
+                }
+                else if (elStat == 2)
+                {
+                    this.AlapHp = 15;
+                    this.AlapEro = 8;
+                    this.AlapDef = 2;
+                }
+                else if (elStat == 3)
+                {
+                    this.AlapHp = 10;
+                    this.AlapEro = 12;
+                    this.AlapDef = 5;
+                    //az ijász 2 körig nem sebződik -> tavolrol lő
+                }
             }
             k.Close();
         }
