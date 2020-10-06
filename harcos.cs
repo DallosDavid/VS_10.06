@@ -13,7 +13,17 @@
 
         public string Nev { get => nev; set => nev = value; }
         public int Klassz { get => klassz; set => klassz = value; }
-        public int AlapHp { get => alapHp; set => alapHp = value; }
+        public int AlapHp { get => alapHp; set
+            {
+                if (this.alapHp == 0)
+                {
+                    this.xp = 0;
+                }
+                if (this.alapHp > MaxEletero)
+                {
+                    this.alapHp = MaxEletero;
+                }
+            } }
         public int AlapEro { get => alapEro; set => alapEro = value; }
         public int AlapDef { get => alapDef; set => alapDef = value; }
         public int Xp
@@ -53,10 +63,15 @@
                 this.AlapHp = 55;
                 this.AlapEro = 60;
                 this.AlapDef = 5;
-                //az ijász 2 körig nem  sebő dik -> tavolrol lő
+                //az ijász 2 körig nem sebződik -> tavolrol lő
             }
         }
+        public override string ToString()
+        {
+            return string.Format("{0} - LVL:{1} - EXP:{2}/{3} - HP:{4}/{5} - DMG:{6}", this.nev, this.szint, this.xp, this.Szintlepes, this.AlapHp, this.MaxEletero, this.AlapEro);
+        }
+    }
 
 
     }
-}
+
