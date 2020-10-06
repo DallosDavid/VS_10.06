@@ -53,7 +53,7 @@
                 this.AlapHp = 55;
                 this.AlapEro = 60;
                 this.AlapDef = 5;
-                //az ijász 2 körig n em sebődik -> tavolrol lő
+                //az ijász 2 körig nem sebődik -> tavolrol lő
             }
         }
 
