@@ -11,6 +11,8 @@ namespace VS_10._06
         static void Main(string[] args)
         {
             Console.WriteLine("asdw");
+
+            Console.ReadLine();
         }
     }
 }
