@@ -71,7 +71,7 @@ namespace VS_10._06
             }
         }
         public List<harcos> ellenseg = new List<harcos>();
-        public void Ellenfel() 
+        public void Ellenfel(harcos masikHarcos) 
         {
             StreamReader k = new StreamReader("ellenfel.txt");
             while (!k.EndOfStream)
@@ -81,21 +81,21 @@ namespace VS_10._06
                 int elStat = Convert.ToInt32(sor[1]);
                 if (elStat == 1)
                 {
-                    this.AlapHp = 30;
-                    this.AlapEro = 5;
-                    this.AlapDef = 10;
+                    masikHarcos.AlapHp = 30;
+                    masikHarcos.AlapEro = 5;
+                    masikHarcos.AlapDef = 10;
                 }
                 else if (elStat == 2)
                 {
-                    this.AlapHp = 15;
-                    this.AlapEro = 8;
-                    this.AlapDef = 2;
+                    masikHarcos.AlapHp = 15;
+                    masikHarcos.AlapEro = 8;
+                    masikHarcos.AlapDef = 2;
                 }
                 else if (elStat == 3)
                 {
-                    this.AlapHp = 10;
-                    this.AlapEro = 12;
-                    this.AlapDef = 5;
+                    masikHarcos.AlapHp = 10;
+                    masikHarcos.AlapEro = 12;
+                    masikHarcos.AlapDef = 5;
                 }
             }
             k.Close();
