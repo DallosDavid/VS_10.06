@@ -14,7 +14,6 @@ namespace VS_10._06
 
            Console.WriteLine("CSATA JÁTÉK\n");
             int valasz;
-            Console.WriteLine(asd);
             do
 	        {
                 Console.WriteLine("Menü\n1. Kezdés\n2. Kilépés\n");
@@ -28,7 +27,8 @@ namespace VS_10._06
 	            {
                  Console.Write("Add meg a karaktered nevét: ");
                  string nev = Console.ReadLine();
-                 Console.WriteLine("Add meg a karaktered klasszát: \n1.Harcos HP: 120 erő:25 védekezés: 10\n2.Mágus HP: 60 erő: 45 védekezés: 2 \n3.Íjássz HP: 55 erő: 60 védekezés: 5 (2 körig nem sebződik)");
+                 Console.WriteLine("\nKlasszok: \n1.Harcos HP: 30 erő: 5 védekezés: 10\n2.Mágus HP: 15 erő: 8 védekezés: 2 \n3.Íjássz HP: 10 erő: 12 védekezés: 5 (2 körig nem sebződik -> távolról lő)");
+                 Console.Write("Add meg a klasszod: ");
 	              int klassz = Convert.ToInt32(Console.ReadLine());
                 }
 	        } while (valasz != 2);
