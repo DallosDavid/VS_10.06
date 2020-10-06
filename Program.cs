@@ -10,7 +10,32 @@ namespace VS_10._06
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("asdw");
+           Console.ForegroundColor = ConsoleColor.Cyan;
+
+           Console.WriteLine("CSATA JÁTÉK\n");
+            int valasz;
+            Console.WriteLine(asd);
+            do
+	        {
+                Console.WriteLine("Menü\n1. Kezdés\n2. Kilépés\n");
+                Console.Write("Menüpont: ");
+                valasz = Convert.ToInt32(Console.ReadLine());
+                if (valasz != 1 && valasz != 2)
+	            {
+                    Console.WriteLine("Rossz menüpont");
+	            }
+                if (valasz == 1)
+	            {
+                 Console.Write("Add meg a karaktered nevét: ");
+                 string nev = Console.ReadLine();
+                 Console.WriteLine("Add meg a karaktered klasszát: \n1.Harcos HP: 120 erő:25 védekezés: 10\n2.Mágus HP: 60 erő: 45 védekezés: 2 \n3.Íjássz HP: 55 erő: 60 védekezés: 5 (2 körig nem sebződik)");
+	              int klassz = Convert.ToInt32(Console.ReadLine());
+                }
+	        } while (valasz != 2);
+            
+
+
+
 
             Console.ReadLine();
         }
