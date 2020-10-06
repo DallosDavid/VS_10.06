@@ -77,7 +77,70 @@ namespace VS_10._06
         }
         public int Szintlepes { get => 10 + szint * 5; }
         public int MaxEletero { get => alapHp + szint * 3; }
-        
+        public void Harc(harcos harcosM)
+        {
+            if (this.Hp > 0)
+            {
+                if (harcosM.AlapDef - this.AlapEro > 0)
+                {
+                    harcosM.alapDef -= this.AlapEro;
+                }
+                else
+                {
+                    harcosM.Hp -= Math.Abs(harcosM.alapDef -= this.AlapEro);
+                }
+            }
+
+            if (harcosM.AlapEro > 0)
+            {
+                if (this.AlapDef - harcosM.AlapEro > 0)
+                {
+                    this.alapDef -= harcosM.AlapEro;
+                }
+                else
+                {
+                    this.alapEro -= Math.Abs(this.alapDef -= harcosM.AlapEro);
+                }
+            }
+            if (this.Hp > 0)
+            {
+                harcosM.Xp += 5;
+            }
+            if (harcosM.Hp > 0)
+            {
+                this.Xp += 5;
+            }
+
+            if (this.Hp - harcosM.AlapEro <= 0)
+            {
+                harcosM.Xp += 10;
+
+            }
+            else if (harcosM.AlapEro - this.AlapEro <= 0)
+            {
+                this.Xp += 10;
+            }
+        }
+
+            public void Gyogyit()
+            {
+                Console.WriteLine();
+                Console.WriteLine("Gyogyiotál ");
+                if (this.Hp == 0)
+                {
+                    this.Hp = MaxEletero;
+                }
+                else if ((Hp += 4) > MaxEletero)
+                {
+                    Console.WriteLine("Plus Hp nem adhatsz magadnak.");
+                }
+                else
+                {
+                    Hp += 4;
+                }
+            }
+
+    
 
         
       
