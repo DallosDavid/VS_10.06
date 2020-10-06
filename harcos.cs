@@ -96,7 +96,6 @@ namespace VS_10._06
                     this.AlapHp = 10;
                     this.AlapEro = 12;
                     this.AlapDef = 5;
-                    //az ijász 2 körig nem sebződik -> tavolrol lő
                 }
             }
             k.Close();
