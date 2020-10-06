@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 
 namespace VS_10._06
 {
@@ -9,27 +10,58 @@ namespace VS_10._06
     {
         public string nev;
         public int klassz;
-        public int alapHp;
+        public int szint;
+        public int xp;
+        public int Hp;
+        public int alapHp ;
         public int alapEro;
         public int alapDef;
-        public int xp;
-        public int szint;
 
+        public harcos(string nev, int klassz)
+        {
+            this.Nev = nev;
+            this.Klassz = klassz;
+            this.xp = 0;
+            this.szint = 1;
+            if (klassz == 1)
+            {
+                this.alapHp = 30;
+                this.alapEro = 5;
+                this.alapDef = 10;
+            }
+            else if (klassz == 2)
+            {
+                this.alapHp = 15;
+                this.alapEro = 8;
+                this.alapDef = 2;
+            }
+            else if (klassz == 3)
+            {
+                this.alapHp = 10;
+                this.alapEro = 12;
+                this.alapDef = 5;
+                //az ijász 2 körig nem sebződik -> tavolrol lő
+            }
+            Hp = MaxEletero;
+        }
         public string Nev { get => nev; set => nev = value; }
         public int Klassz { get => klassz; set => klassz = value; }
-        public int AlapHp { get => alapHp; set
+        public int Szint { get => szint; set => szint = value; }
+        public int HP { get => Hp; set
             {
-                if (this.alapHp == 0)
+                if (this.Hp == 0)
                 {
                     this.xp = 0;
                 }
-                if (this.alapHp > MaxEletero)
+                if (this.Hp > MaxEletero)
                 {
-                    this.alapHp = MaxEletero;
+                    this.Hp = MaxEletero;
                 }
-            } }
-        public int AlapEro { get => alapEro; set => alapEro = value; }
-        public int AlapDef { get => alapDef; set => alapDef = value; }
+            } 
+        }
+        public int AlapHP {get => alapHp;}
+        public int AlapEro { get => alapEro;  }
+        public int AlapDef { get => alapDef;  }
         public int Xp
         {
             get => xp;
@@ -45,64 +77,13 @@ namespace VS_10._06
         }
         public int Szintlepes { get => 10 + szint * 5; }
         public int MaxEletero { get => alapHp + szint * 3; }
+        
 
-        public harcos(string nev, int klassz)
-        {
-            this.Nev = nev;
-            this.Klassz = klassz;
-            if (klassz == 1)
-            {
-                this.AlapHp = 30;
-                this.AlapEro = 5;
-                this.AlapDef = 10;
-            }
-            else if (klassz == 2)
-            {
-                this.AlapHp = 15;
-                this.AlapEro = 8;
-                this.AlapDef = 2;
-            }
-            else if (klassz == 3)
-            {
-                this.AlapHp = 10;
-                this.AlapEro = 12;
-                this.AlapDef = 5;
-                //az ijász 2 körig nem sebződik -> tavolrol lő
-            }
-        }
-        public List<harcos> ellenseg = new List<harcos>();
-        public void Ellenfel(harcos masikHarcos) 
-        {
-            StreamReader k = new StreamReader("ellenfel.txt");
-            while (!k.EndOfStream)
-            {
-                string [] sor = k.ReadLine().Split(';');
-                ellenseg.Add(new harcos(sor[0],Convert.ToInt32(sor[1])));
-                int elStat = Convert.ToInt32(sor[1]);
-                if (elStat == 1)
-                {
-                    masikHarcos.AlapHp = 30;
-                    masikHarcos.AlapEro = 5;
-                    masikHarcos.AlapDef = 10;
-                }
-                else if (elStat == 2)
-                {
-                    masikHarcos.AlapHp = 15;
-                    masikHarcos.AlapEro = 8;
-                    masikHarcos.AlapDef = 2;
-                }
-                else if (elStat == 3)
-                {
-                    masikHarcos.AlapHp = 10;
-                    masikHarcos.AlapEro = 12;
-                    masikHarcos.AlapDef = 5;
-                }
-            }
-            k.Close();
-        }
+        
+      
         public override string ToString()
         {
-            return string.Format("{0} - LVL:{1} - EXP:{2}/{3} - HP:{4}/{5} - DMG:{6}", this.nev, this.szint, this.xp, this.Szintlepes, this.AlapHp, this.MaxEletero, this.AlapEro);
+            return string.Format("{0} - LVL:{1} - EXP:{2}/{3} - HP:{4}/{5} - DMG:{6}", this.nev, this.szint, this.xp, this.Szintlepes, this.Hp, this.MaxEletero, this.AlapEro);
         }
     }
 
