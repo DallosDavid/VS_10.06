@@ -1,4 +1,8 @@
-﻿namespace VS_10._06
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace VS_10._06
 {
 
     class harcos
@@ -65,6 +69,18 @@
                 this.AlapDef = 5;
                 //az ijász 2 körig nem sebződik -> tavolrol lő
             }
+        }
+        public List<harcos> ellenseg = new List<harcos>();
+        public void Ellenfel() 
+        {
+            StreamReader k = new StreamReader("ellenfel.txt");
+            while (!k.EndOfStream)
+            {
+                string [] sor = k.ReadLine().Split(';');
+                ellenseg.Add(new harcos(sor[0],Convert.ToInt32(sor[1])));
+
+            }
+            k.Close();
         }
         public override string ToString()
         {
