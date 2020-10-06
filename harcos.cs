@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VS_10._06
+﻿namespace VS_10._06
 {
-    
+
     class harcos
     {
         public string nev;
@@ -22,7 +16,9 @@ namespace VS_10._06
         public int AlapHp { get => alapHp; set => alapHp = value; }
         public int AlapEro { get => alapEro; set => alapEro = value; }
         public int AlapDef { get => alapDef; set => alapDef = value; }
-        public int Xp { get => xp;
+        public int Xp
+        {
+            get => xp;
             set
             {
                 if (this.xp == Szintlepes)
